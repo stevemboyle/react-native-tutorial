@@ -1,14 +1,17 @@
 // Tutorial found here: https://facebook.github.io/react-native/docs/tutorial.html
 
 import React, { Component } from 'react';
-import { AppRegistry, Text } from 'react-native';
+import { AppRegistry, Image } from 'react-native';
 
-class HelloWorldApp extends Component {
+class Bananas extends Component {
   render() {
+    let pic = {
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    };
     return (
-      <Text>Hello world!</Text>
+      <Image source={pic} style={{width: 193, height: 110}}/>
     );
   }
 }
 
-AppRegistry.registerComponenet('HelloWorldApp', () => HelloWorldApp );
+AppRegistry.registerComponenet('Bananas', () => Bananas );

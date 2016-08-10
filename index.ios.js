@@ -1,26 +1,54 @@
 // Tutorial found here: https://facebook.github.io/react-native/docs/tutorial.html
 
+// *******************************************
+// IMPORT
+// *******************************************
+
 import React, { Component } from 'react';
 import { AppRegistry, Text, View } from 'react-native';
 
-class Greeting extends Component {
+// *******************************************
+// BLINK
+// *******************************************
+
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {showText: true};
+
+    // Toggle the state each second
+    setInterval(() => {
+      this.setState({ showText: !this.state.showText });
+    }, 1000);
+  }
+
   render() {
+    let display = this.state.showText ? this.props.text : ' ';
     return (
-      <Text>Hello {this.props.name}!</Text>
+      <Text>{display}</Text>
     );
   }
 }
 
-class LotsOfGreetings extends Component {
+// *******************************************
+// BLINK APP
+// *******************************************
+
+class BlinkApp extends Component {
   render() {
     return (
-      <View style={{alignItems: 'center'}}>
-        <Greeting name='Rexxar' />
-        <Greeting name='Jaina' />
-        <Greeting name='Valeera' />
+      <View>
+        <Blink text='I love to blink' />
+        <Blink text='Yes blinking is so great' />
+        <Blink text='Why did they ever take this out of HTML' />
+        <Blink text='Look at me look at me look at me' />
       </View>
     );
   }
 }
 
-AppRegistry.registerComponenet('LotsOfGreetings', () => LotsOfGreetings );
+// *******************************************
+// APP REGISTRY
+// *******************************************
+
+AppRegistry.registerComponenet('BlinkApp', () => BlinkApp );
